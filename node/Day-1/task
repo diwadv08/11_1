@@ -1,7 +1,7 @@
-3 modules
-images/boy/12.jpg  => path.join existsync true
+1.3 modules
+2.images/boy/12.jpg  => path.join existsync true
 
-Hello World => dlroW olleH  
+3.Hello World => dlroW olleH  
 string Reverse
 
-paragraph => Hello world this is an beautiful world is is is an this
+4.paragraph => Hello world this is an beautiful world is is is an this
