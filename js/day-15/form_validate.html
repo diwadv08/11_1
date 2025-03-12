@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span{
+        color:red;
+    }
+</style>
+<body>
+    <form action="new.html" onsubmit="return Form_validate()">
+        <input type="text" id="name" required>
+        <input type="password" id="pwd" required>
+        <br>
+        <span id="error"></span>
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
+<script src="form_validate.js"></script>

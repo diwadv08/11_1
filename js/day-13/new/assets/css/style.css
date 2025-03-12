@@ -1,0 +1,7 @@
+.navbar-nav .active{
+    background:green;
+    padding:2px 30px;
+}
+.navbar-nav a{
+    margin-left:20px;
+}

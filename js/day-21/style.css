@@ -1,0 +1,21 @@
+
+.card-body h3:nth-child(1){
+    text-decoration:line-through;
+    font-size: 18px;
+}
+.card-body h3:nth-child(2){
+    font-size: 22px;
+}
+.card-body h2{
+    font-size: 25px; 
+}
+.cart_count{
+    position: relative;
+    top:-25px;
+    left:-5px;
+    font-size: 15px;
+    font-weight:900;
+    background:red;
+    padding:4px 10px;
+    border-radius:20px;
+}

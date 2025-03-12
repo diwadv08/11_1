@@ -1,0 +1,7 @@
+.nav-link{
+    text-transform:capitalize;
+}
+.nav-item .active{
+    background:#000000;
+    color: white !important;;
+}
