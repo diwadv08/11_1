@@ -29,8 +29,9 @@ emitter.on('download', (a) => {
     console.log(`Downloading: ${a}`);
     setTimeout(() => {
         console.log(`${a} downloaded successfully!`);
-    }, 3000);
+    }, 4000);
 });
+
 emitter.emit('download', 'file.mp4');
 setTimeout(() => {
     console.log(`Direct`);
