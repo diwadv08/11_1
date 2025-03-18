@@ -17,4 +17,5 @@ url.then((url)=>{
 //     let url=await fetch('https://jsonplaceholder.typicode.com/albums');
 //     console.log(await url.json());
 // }
+
 // Api()

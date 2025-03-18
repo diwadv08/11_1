@@ -1,4 +1,4 @@
-function calc(a,b,c){
+function calc(a,b,c,d=0){
     a()
     b()
     c()
@@ -19,8 +19,6 @@ let j3=()=>{
     },1000)
 }
 calc(j1,j2,j3) 
-
-
 
 
 

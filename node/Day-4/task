@@ -1,0 +1,5 @@
+1.Form With minimum 10 inputs diffrent type(color,text,number except file)
+2.Week Days callback sunday
+3.Odd Or even Odd- reject even-resolve then catch 
+4.name=Helllo&age=22&mobile=9876543 => Object Convert
+5.thunder client (Form Response)
