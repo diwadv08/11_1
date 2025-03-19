@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("common/links.ejs") %>
+<body>
+    <%- include("common/header.ejs") %>
+    
+    <% for(let i=10;i<=15;i++){ %>
+        <img src="/imagePath/<%=i%>.jpg" alt="" height="70">
+    <% } %>
+</body>
+</html>
