@@ -5,8 +5,7 @@ const home = require("./routes/home");
 const ejs=require("ejs");
 const path=require("path");
 const app=express();
-app.use("/imagePath",express.static(path.join(__dirname,"views","images")))
-
+app.use("/imagePath",express.static(path.join(__dirname,"views","images")));
 app.use("/work_image",express.static(path.join(__dirname,'images')));
 app.get("/image/users/:imgName",(req,res)=>{
     let name=req.params.imgName;
