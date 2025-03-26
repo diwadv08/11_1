@@ -1,0 +1,1108 @@
+
+test> show dbs
+Product     16.00 KiB
+admin      180.00 KiB
+ai-chat      8.00 KiB
+card         8.00 KiB
+config      96.00 KiB
+ecom         8.00 KiB
+ecom_new    84.00 KiB
+flipkart    72.00 KiB
+local       88.00 KiB
+new_db     108.00 KiB
+nextjs_db  180.00 KiB
+portfolio  336.00 KiB
+students    40.00 KiB
+test        80.00 KiB
+test> use amazon
+switched to db amazon
+amazon> show dbs
+Product     16.00 KiB
+admin      180.00 KiB
+ai-chat      8.00 KiB
+card         8.00 KiB
+config     108.00 KiB
+ecom         8.00 KiB
+ecom_new    84.00 KiB
+flipkart    72.00 KiB
+local       88.00 KiB
+new_db     108.00 KiB
+nextjs_db  180.00 KiB
+portfolio  336.00 KiB
+students    40.00 KiB
+test        80.00 KiB
+
+
+amazon> db.createCollection("add_cart")
+{ ok: 1 }
+
+amazon> show dbs
+Product     16.00 KiB
+admin      180.00 KiB
+ai-chat      8.00 KiB
+amazon       8.00 KiB
+card         8.00 KiB
+config     108.00 KiB
+ecom         8.00 KiB
+ecom_new    84.00 KiB
+flipkart    72.00 KiB
+local       88.00 KiB
+new_db     108.00 KiB
+nextjs_db  180.00 KiB
+portfolio  336.00 KiB
+students    40.00 KiB
+test        80.00 KiB
+amazon> use students
+switched to db students
+students> show collections
+details
+students> use amazon
+switched to db amazon
+amazon> show collections
+add_cart
+amazon> db.add_cart.insertOne({name:'Harish',age:22})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67e398710272ac7056893bf8')
+}
+amazon> db.add_cart.insertOne({name:'Raju',age:20})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67e398c10272ac7056893bf9')
+}
+amazon> db.add_cart.find()
+[
+  {
+    _id: ObjectId('67e398710272ac7056893bf8'),
+    name: 'Harish',
+    age: 22
+  },
+  { _id: ObjectId('67e398c10272ac7056893bf9'), name: 'Raju', age: 20 }
+]
+amazon> db.add_cart.insertOne({name:'Raju',age:20,createdAt:Date})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67e398fd0272ac7056893bfa')
+}
+amazon> db.add_cart.find()
+[
+  {
+    _id: ObjectId('67e398710272ac7056893bf8'),
+    name: 'Harish',
+    age: 22
+  },
+  { _id: ObjectId('67e398c10272ac7056893bf9'), name: 'Raju', age: 20 },
+  {
+    _id: ObjectId('67e398fd0272ac7056893bfa'),
+    name: 'Raju',
+    age: 20,
+    createdAt: Code('function Date() { [native code] }')
+  }
+]
+amazon> db.add_cart.insertOne({name:'Raju',age:20,createdAt:new Date()})
+{
+
+amazon> db.add_cart.insertOne({name:"Ravi",age:22,createdAt:new Date()})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67e399560272ac7056893bfc')
+}
+amazon> db.add_cart.find()
+[
+  {
+    _id: ObjectId('67e398710272ac7056893bf8'),
+    name: 'Harish',
+    age: 22
+  },
+  { _id: ObjectId('67e398c10272ac7056893bf9'), name: 'Raju', age: 20 },
+  {
+    _id: ObjectId('67e398fd0272ac7056893bfa'),
+    name: 'Raju',
+    age: 20,
+    createdAt: Code('function Date() { [native code] }')
+  },
+  {
+    _id: ObjectId('67e3990f0272ac7056893bfb'),
+    name: 'Raju',
+    age: 20,
+    createdAt: ISODate('2025-03-26T06:05:03.402Z')
+  },
+  {
+    _id: ObjectId('67e399560272ac7056893bfc'),
+    name: 'Ravi',
+    age: 22,
+    createdAt: ISODate('2025-03-26T06:06:14.211Z')
+  }
+]
+amazon> db.add_cart.insertOne({name:"Ravi",age:22,createdAt:Date})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67e399c70272ac7056893bfd')
+}
+amazon> db.add_cart.find()
+[
+  {
+    _id: ObjectId('67e398710272ac7056893bf8'),
+    name: 'Harish',
+    age: 22
+  },
+  { _id: ObjectId('67e398c10272ac7056893bf9'), name: 'Raju', age: 20 },
+  {
+    _id: ObjectId('67e398fd0272ac7056893bfa'),
+    name: 'Raju',
+    age: 20,
+    createdAt: Code('function Date() { [native code] }')
+  },
+  {
+    _id: ObjectId('67e3990f0272ac7056893bfb'),
+    name: 'Raju',
+    age: 20,
+    createdAt: ISODate('2025-03-26T06:05:03.402Z')
+  },
+  {
+    _id: ObjectId('67e399560272ac7056893bfc'),
+    name: 'Ravi',
+    age: 22,
+    createdAt: ISODate('2025-03-26T06:06:14.211Z')
+  },
+  {
+    _id: ObjectId('67e399c70272ac7056893bfd'),
+    name: 'Ravi',
+    age: 22,
+    createdAt: Code('function Date() { [native code] }')
+  }
+]
+amazon> db.add_cart.insertOne({name:"Ravi",age:22,createdAt:new Date()})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67e399d30272ac7056893bfe')
+}
+amazon> db.add_cart.find()
+[
+  {
+    _id: ObjectId('67e398710272ac7056893bf8'),
+    name: 'Harish',
+    age: 22
+  },
+  { _id: ObjectId('67e398c10272ac7056893bf9'), name: 'Raju', age: 20 },
+  {
+    _id: ObjectId('67e398fd0272ac7056893bfa'),
+    name: 'Raju',
+    age: 20,
+    createdAt: Code('function Date() { [native code] }')
+  },
+  {
+    _id: ObjectId('67e3990f0272ac7056893bfb'),
+    name: 'Raju',
+    age: 20,
+    createdAt: ISODate('2025-03-26T06:05:03.402Z')
+  },
+  {
+    _id: ObjectId('67e399560272ac7056893bfc'),
+    name: 'Ravi',
+    age: 22,
+    createdAt: ISODate('2025-03-26T06:06:14.211Z')
+  },
+  {
+    _id: ObjectId('67e399c70272ac7056893bfd'),
+    name: 'Ravi',
+    age: 22,
+    createdAt: Code('function Date() { [native code] }')
+  },
+  {
+    _id: ObjectId('67e399d30272ac7056893bfe'),
+    name: 'Ravi',
+    age: 22,
+    createdAt: ISODate('2025-03-26T06:08:19.276Z')
+  }
+]
+amazon> db.add_cart.deleteOne({name:"Ravi"})
+{ acknowledged: true, deletedCount: 1 }
+amazon> db.add_cart.deleteMany({name:"Ravi"})
+{ acknowledged: true, deletedCount: 2 }
+amazon> db.add_cart.find()
+[
+  {
+    _id: ObjectId('67e398710272ac7056893bf8'),
+    name: 'Harish',
+    age: 22
+  },
+  { _id: ObjectId('67e398c10272ac7056893bf9'), name: 'Raju', age: 20 },
+  {
+    _id: ObjectId('67e398fd0272ac7056893bfa'),
+    name: 'Raju',
+    age: 20,
+    createdAt: Code('function Date() { [native code] }')
+  },
+  {
+    _id: ObjectId('67e3990f0272ac7056893bfb'),
+    name: 'Raju',
+    age: 20,
+    createdAt: ISODate('2025-03-26T06:05:03.402Z')
+  }
+]
+amazon> db.add_cart.deleteOne({name:"Raju"})
+{ acknowledged: true, deletedCount: 1 }
+
+amazon> db.createCollection("cart")
+{ ok: 1 }
+amazon> db.cart.insertMany([{name:"Hari",age:11,createAt:new Date()},{name:"Hari",age:51,createAt:new Date()},{name:"Ravi",age:21,createAt:new Date()}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67e39b440272ac7056893bff'),
+    '1': ObjectId('67e39b440272ac7056893c00'),
+    '2': ObjectId('67e39b440272ac7056893c01')
+  }
+}
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Hari',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c00'),
+    name: 'Hari',
+    age: 51,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ravi',
+    age: 21,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  }
+]
+amazon> db.add_cart.deleteOne({name:"Hari",age:51})
+
+amazon> db.cart.deleteOne({name:"Hari",age:51})
+{ acknowledged: true, deletedCount: 1 }
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Hari',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ravi',
+    age: 21,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  }
+]
+amazon> db.cart.insertMany([{name:"Hari",age:12,createdAt:new Date()},{name:"Hari",age:15,createdAt:new Date()},{name:"Hari",age:14,createdAt:new Date()}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67e39c610272ac7056893c02'),
+    '1': ObjectId('67e39c610272ac7056893c03'),
+    '2': ObjectId('67e39c610272ac7056893c04')
+  }
+}
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Hari',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ravi',
+    age: 21,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Hari',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Hari',
+    age: 15,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Hari',
+    age: 14,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  }
+]
+amazon> db.cart.find({name:"Hari"})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Hari',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Hari',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Hari',
+    age: 15,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Hari',
+    age: 14,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  }
+]
+amazon> db.cart.find({name:"Hari",age:11})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Hari',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  }
+]
+amazon> db.cart.findOne({name:"Hari"})
+{
+  _id: ObjectId('67e39b440272ac7056893bff'),
+  name: 'Hari',
+  age: 11,
+  createAt: ISODate('2025-03-26T06:14:28.315Z')
+}
+amazon> db.cart.find({age:{$gt>20}})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:22)
+
+> 1 | db.cart.find({age:{$gt>20}})
+    |                       ^
+  2 |
+
+amazon> db.cart.find({age:{$gt:20}})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ravi',
+    age: 21,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  }
+]
+amazon> db.cart.find({name:"Hari",age:20})
+
+amazon> db.cart.insertOne({name:"Hari",age:20,createdAt:new Date()})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67e39e740272ac7056893c05')
+}
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Hari',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ravi',
+    age: 21,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Hari',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Hari',
+    age: 15,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Hari',
+    age: 14,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Hari',
+    age: 20,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.find({age:{$gt:20}})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ravi',
+    age: 21,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  }
+]
+amazon> db.cart.find({age:{$gte:20}})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ravi',
+    age: 21,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Hari',
+    age: 20,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.find({age:{$eq:11}})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Hari',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  }
+]
+amazon> db.cart.updateOne({name:"Ravi"},{$set:{name:"Ramesh"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Hari',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 21,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Hari',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Hari',
+    age: 15,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Hari',
+    age: 14,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Hari',
+    age: 20,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.updateOne({name:"Hari"},{$set:{name:"Harish"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 21,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Hari',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Hari',
+    age: 15,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Hari',
+    age: 14,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Hari',
+    age: 20,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.updateMany({name:"Hari"},{$set:{name:"Raju"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 4,
+  modifiedCount: 4,
+  upsertedCount: 0
+}
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 21,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 15,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 14,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 20,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.updateMany({age:{$gte:14}},{$set:{age:44}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 4,
+  modifiedCount: 4,
+  upsertedCount: 0
+}
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 44,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.updateMany({age:{$gt:10}},{$inc:{age:3}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 6,
+  modifiedCount: 6,
+  upsertedCount: 0
+}
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 14,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 47,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 15,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 47,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 47,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 47,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.updateMany({age:{$gt:10}},{$dec:{age:3}})
+MongoServerError: Unknown modifier: $dec. Expected a valid update modifier or pipeline-style update specified as an array
+amazon> db.cart.updateMany({age:{$gt:10}},{$inc:{age:-3}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 6,
+  modifiedCount: 6,
+  upsertedCount: 0
+}
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 44,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.find({age:{$gte:10}})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 44,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.find({age:{$gte:10},age:{$lte:15}})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  }
+]
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 44,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.find().sort({age:1})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+
+amazon> db.cart.find().sort({age:1})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 44,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 44,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.find().sort({age:1})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 44,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.find().sort({age:-1})
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893c01'),
+    name: 'Ramesh',
+    age: 44,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  }
+]
+amazon> db.cart.replaceOne({name:"Ramesh"},{name:"Ramesh"})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+amazon> db.cart.find()
+[
+  {
+    _id: ObjectId('67e39b440272ac7056893bff'),
+    name: 'Harish',
+    age: 11,
+    createAt: ISODate('2025-03-26T06:14:28.315Z')
+  },
+  { _id: ObjectId('67e39b440272ac7056893c01'), name: 'Ramesh' },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
+amazon> db.cart.replaceOne({name:"Harish"},{name:"Harish"})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+amazon> db.cart.find()
+[
+  { _id: ObjectId('67e39b440272ac7056893bff'), name: 'Harish' },
+  { _id: ObjectId('67e39b440272ac7056893c01'), name: 'Ramesh' },
+  {
+    _id: ObjectId('67e39c610272ac7056893c02'),
+    name: 'Raju',
+    age: 12,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c03'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39c610272ac7056893c04'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:19:13.993Z')
+  },
+  {
+    _id: ObjectId('67e39e740272ac7056893c05'),
+    name: 'Raju',
+    age: 44,
+    createdAt: ISODate('2025-03-26T06:28:04.350Z')
+  }
+]
