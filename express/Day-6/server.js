@@ -1,5 +1,5 @@
 // const crypto=require("crypto");
-// console.log(crypto.randomBytes(64).toString("hex"));
+// console.log(crypto.randomBytes(4).toString("hex"));
 require("dotenv").config();
 const express=require("express");
 const path=require("path");

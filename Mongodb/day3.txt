@@ -1,0 +1,2 @@
+
+db.mark_new.aggregate({$match:{t_mark:{$lte:60}}},{$project:{_id:0}},{$count:"count_12"})

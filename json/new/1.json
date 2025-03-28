@@ -1,0 +1,145 @@
+    [
+        {
+        "name":"Data-1",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"1.5",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"0",
+        "added_cart":1
+    },
+    {
+        "name":"Data-2",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"4.5",
+        "old_price":"700",
+        "new_price":"1500",
+        "img":"1",
+        "added_cart":1
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"2.5",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"2",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"1.5",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"3",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"3.5",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"4",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"2.5",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"5",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"1.5",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"6",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"2.5",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"7",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"4.5",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"8",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"5",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"9",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"1.5",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"10",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"2",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"11",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"4",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"12",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"3",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"13",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"2",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"14",
+        "added_cart":0
+    },
+    {
+        "name":"T-Shirt",
+        "description":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, labore voluptas maiores",
+        "rating":"4.5",
+        "old_price":"700",
+        "new_price":"500",
+        "img":"15"
+    }]
+    

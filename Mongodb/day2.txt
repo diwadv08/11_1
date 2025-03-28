@@ -1,0 +1,8 @@
+$match	     Filters documents (like find)
+$group	     Groups data and performs calculations
+$sort	     Sorts documents
+$project     Modifies document structure (includes/excludes fields)
+$limit	     Limits the number of documents
+$skip	     Skips a number of documents
+$lookup	     Joins with another collection (like SQL JOIN)
+$unwind	     Expands arrays into separate documents
