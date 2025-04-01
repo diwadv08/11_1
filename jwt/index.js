@@ -10,7 +10,9 @@ app.use(bodyParser.json());
 // **Login Route - Generates JWT**
 app.post("/login", (req, res) => {
   const user = { username: req.body.username || "testuser" }; // Dummy user
-  const token = jwt.sign(user, SECRET_KEY, { expiresIn: "30s" }); // Generate JWT
+  const token = jwt.sign(
+    
+    user, SECRET_KEY, { expiresIn: "30s" }); // Generate JWT
   res.json({ token });
 });
 
@@ -27,6 +29,97 @@ const verifyToken = (req, res, next) => {
   const token = req.headers["authorization"];
   if (!token) return res.status(403).json({ message: "Token required" });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  kjl
   jwt.verify(token, SECRET_KEY, (err, decoded) => {
     if (err) return res.status(401).json({ message: "Invalid token" });
     req.user = decoded;
