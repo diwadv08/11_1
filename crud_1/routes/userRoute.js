@@ -1,0 +1,11 @@
+const express=require("express");
+const { userGet,userList,userPost,userView,userEdit,userDelete,userUpdate} = require("../controller/userController");
+const userRoute=express.Router();
+userRoute.get("/",userGet);
+userRoute.post("/",userPost);
+userRoute.get("/list",userList);
+userRoute.post("/update",userUpdate);
+userRoute.get("/view/:id",userView);
+userRoute.get("/edit/:id",userEdit);
+userRoute.get("/delete/:id",userDelete);
+module.exports=userRoute;

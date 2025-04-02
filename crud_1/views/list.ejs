@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <style>
+        table{
+            border-collapse:collapse;
+            width:100%;
+        }
+        th{
+            text-align:left;
+        }
+    </style>
+    <a href="/">Add User</a>
+    <table cellpadding="10" border="1">
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Mobile</th>
+            <th>Password</th>
+            <th>Action</th>
+        </tr>
+            <% allUsers.map((data,index)=>{ %>
+                <tr>
+                    <td><%=index+1%></td>
+                    <td><%=data.name%></td>
+                    <td><%=data.age%></td>
+                    <td><%=data.mobile%></td>
+                    <td><%=data.pwd%></td>
+                    <!-- <td><%=data.dob%></td> -->
+                    <td>
+                        <a href="/view/<%=data._id%>"><i class="fa fa-eye"></i></a>
+                        <a href="/edit/<%=data._id%>"><i class="fa fa-edit"></i></a>
+                        <a href="/delete/<%=data._id%>" onclick="return confirm('Are u sure want to delete')"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tr>
+    </table>
+</body>
+</html>

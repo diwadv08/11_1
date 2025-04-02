@@ -1,10 +1,12 @@
 const express=require("express");
-const {homeGetControl,homePostControl,listControl, userView, userDelete} = require("../controller/homeController");
+const {homeGetControl,homePostControl,listControl, userView, userDelete,userEdit,userEditPost} = require("../controller/homeController");
 const homeRouter=express.Router();
 homeRouter.get("/",homeGetControl);
 homeRouter.post("/",homePostControl);
 homeRouter.get("/list",listControl);
 homeRouter.get("/view/:id",userView);
+homeRouter.get("/edit/:id",userEdit);
+homeRouter.post("/edit",userEditPost);
 homeRouter.get("/delete/:id",userDelete);
 homeRouter.delete("/delete/:id",userDelete);
 module.exports=homeRouter;

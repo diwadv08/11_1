@@ -1,5 +1,5 @@
 const moongoose=require("mongoose")
-const userSchema=moongoose.model("users",{
+const userSchema=moongoose.model("staffs",{
     name:String,
     age:Number
 })

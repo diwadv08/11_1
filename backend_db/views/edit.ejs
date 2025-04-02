@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/edit" method="POST">
+        <input type="text" name="name" value="<%=editSingleUser.name%>" required>
+        <input type="text" name="age" value="<%=editSingleUser.age%>" required>
+        <input type="hidden" name="_id" value="<%=editSingleUser._id%>">
+        <input type="submit">
+    </form>
+</body>
+</html>
