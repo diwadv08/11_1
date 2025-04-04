@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+ 
+    <a data-bs-target="#myModal" data-bs-toggle="modal" onclick="myFun('add')">Add User</a>
+   
+    <table cellpadding="10" border="1" class="table bordered">
+        <tr>
+            <th>S.No</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Mobile</th>
+            <th>Password</th>
+            <th>Action</th>
+        </tr>
+            <% allUsers.map((data,index)=>{ %>
+                <tr>
+                    <td><%=index+1%></td>
+                    <td>
+                        <img src="/image/<%=data.img%>" alt="" height="40px">
+                    </td>
+                    <td><%=data.name%></td>
+                    <td><%=data.age%></td>
+                    <td><%=data.mobile%></td>
+                    <td><%=data.pwd%></td>
+                    <!-- <td><%=data.dob%></td> -->
+                    <td>
+                        <a data-bs-target="#myModal" data-bs-toggle="modal" onclick="myFun('view-<%=data._id%>')"><i class="fa fa-eye"></i></a>
+                        <a data-bs-target="#myModal" data-bs-toggle="modal" onclick="myFun('edit-<%=data._id%>')"><i class="fa fa-edit"></i></a>
+                        <a href="/delete/<%=data._id%>" onclick="return confirm('Are u sure want to delete')"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tr>
+    </table>
+
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!--  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>
+
+<script>
+
+    let myModalBody=document.querySelector(".modal-body");
+    async function myFun(a){
+        let check=a.includes("-");
+        let b,id,name;
+        if(check){
+            b=a.split("-");
+            id=b[1];
+            name=b[0];
+        }
+        if(a=="add"){
+            myModalBody.innerHTML=`<form action="/" method="POST" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Enter Name">
+                <br><br>
+                <input type="number" name="age" placeholder="Enter Age">
+                <br><br>
+                <input type="text" name="mobile" placeholder="Enter Mobile">
+                <br><br>
+                <input type="password" name="pwd" placeholder="Enter Password">
+                <br><br>
+                <input type="date" name="dob">
+                <br><br>
+                <input type="file" name="img">
+                <input type="submit">
+        </form>`;
+        }
+        else if(name=="view"){
+            let datas=await fetch(`/view/${id}`);
+            let userView=await datas.json();
+
+            let dob=new Date(userView.dob);
+            let og_date=dob.toString().split("05")[0];
+            
+            // let og_date=read_dob.split("05");
+            myModalBody.innerHTML=`
+            <h1>${userView.name}</h1>
+            <h1>${og_date}</h1>
+            <h1>${userView.age}</h1>`;
+        }
+        else if(name=="edit"){
+            let datas=await fetch(`/edit/${id}`);
+            let userEdit=await datas.json();
+            let date=userEdit.dob;
+            let date_og=date.split("T")[0];
+            
+            myModalBody.innerHTML=`<form action="/update" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Enter Name" value="${userEdit.name}">
+            <br><br>
+            <input type="number" name="age" placeholder="Enter Age" value="${userEdit.age}">
+            <br><br>
+            <input type="text" name="mobile" placeholder="Enter Mobile" value="${userEdit.mobile}">
+            <br><br>
+            <input type="password" name="pwd" placeholder="Enter Password" value="${userEdit.pwd}">
+            <input type="hidden" name="_id" placeholder="Enter Password" value="${userEdit._id}">
+            <br><br>
+            <input type="date" name="dob" value="${date_og}">
+            <br><br>
+            <label for="myImg">
+                <img src="/image/${userEdit.img}" height="200" alt="" id="img_label">
+            </label>
+            <br>
+            <input type="file" name="img" id="myImg" hidden accept="image/*">
+            <input type="submit">
+    </form>`;
+        }
+    }
+
+</script>
